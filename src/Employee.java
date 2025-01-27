@@ -1,5 +1,3 @@
-package week1.assignment;
-
 import java.util.List;
 
 // 공통 상위 클래스
