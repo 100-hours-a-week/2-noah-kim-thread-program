@@ -83,16 +83,16 @@ public class Main {
         switch (role) {
             case "Product Manager":
             case "Finance Manager":
-                return new Manager();
+                return new Manager(role);
             case "Frontend Developer":
             case "Backend Developer":
             case "Data Scientist":
             case "DevOps Engineer":
-                return new Developer();
+                return new Developer(role);
             case "Marketing":
-                return new Marketer();
+                return new Marketer(role);
             case "UI/UX Designer":
-                return new Designer();
+                return new Designer(role);
             default:
                 throw new IllegalArgumentException("Unknown role: " + role);
         }
@@ -119,7 +119,7 @@ public class Main {
 
     private static void spaekAllResolutions(List<Employee> Employees) {
         for(Employee employee : Employees) {
-            System.out.println(employee.getResolution());
+            System.out.println(employee.getInfo());
         }
     }
 }
