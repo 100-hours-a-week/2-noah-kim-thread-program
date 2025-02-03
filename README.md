@@ -44,6 +44,15 @@ noah가 생각했을때 필요한 직군은 다음과 같다.
 
 또한, 선택이 완료된 후 재선택할 수 있는 선택지를 주어 선택한 직무의 인원을 재선택할 수 있도록 구현하세요.
 
+
 [클래스 다이어그램(설계)]
 
+![classDiagram](https://github.com/user-attachments/assets/4b39d7e8-ea4e-44a9-8fdf-c6175cb7d170)
+
+
 [실행 결과 영상]
+
+![GIFMaker_me](https://github.com/user-attachments/assets/afa5c0cc-ec99-497b-a0b0-fd75a67119e0)
+
+
+
