@@ -68,8 +68,14 @@ public class Main {
         for (int i = 0; i < roles.size(); i++) {
             System.out.println((i + 1) + ". " + roles.get(i) + ": " + employees.get(i).getSalary());
         }
+        spaekAllResolutions(employees);
+
         System.out.println("필요한 총 비용: " + totalSalary);
+
+
         System.out.println("행운을 빌어요!");
+
+
     }
 
     // 역할에 따라 객체를 생성하는 메서드
@@ -109,5 +115,11 @@ public class Main {
             }
         }
         return salary;
+    }
+
+    private static void spaekAllResolutions(List<Employee> Employees) {
+        for(Employee employee : Employees) {
+            System.out.println(employee.getResolution());
+        }
     }
 }
