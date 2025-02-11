@@ -81,8 +81,7 @@ noah는 각 직군에 원하는 연봉과 정보를 입력한 뒤, 연봉을 토
 
 ### 클래스 다이어그램(설계)
 
-![classDiagram](https://github.com/user-attachments/assets/4b39d7e8-ea4e-44a9-8fdf-c6175cb7d170)
+<img width="796" alt="클래스 다이어그램" src="https://github.com/user-attachments/assets/e913037b-1b13-406b-8342-bad6cf9a281c" />
 
-### 실행 결과 영상
 
-![GIFMaker_me](https://github.com/user-attachments/assets/afa5c0cc-ec99-497b-a0b0-fd75a67119e0)
+
