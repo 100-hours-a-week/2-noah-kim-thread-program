@@ -1,0 +1,39 @@
+package employees.web.dev;
+
+import employees.web.Developer;
+import java.util.List;
+
+public class Devops extends Developer {
+
+  private int CICDLevel;
+  private int cloudPlatformLevel;
+
+  public Devops(int salary, int experienceYears, String role, String domain, int communationLevel,
+      List<String> stacks, int CICDLevel, int cloudPlatformLevel) {
+    super(salary, experienceYears, role, domain, communationLevel, stacks);
+    this.CICDLevel = CICDLevel;
+    this.cloudPlatformLevel = cloudPlatformLevel;
+  }
+
+  public int getCICDLevel() {
+    return CICDLevel;
+  }
+
+  public void setCICDLevel(int CICDLevel) {
+    this.CICDLevel = CICDLevel;
+  }
+
+  public int getCloudPlatformLevel() {
+    return cloudPlatformLevel;
+  }
+
+  public void setCloudPlatformLevel(int cloudPlatformLevel) {
+    this.cloudPlatformLevel = cloudPlatformLevel;
+  }
+
+  // TODO: Devops 프로필 보여주는 함수 만들기
+  @Override
+  public String showProfile() {
+    return "";
+  }
+}

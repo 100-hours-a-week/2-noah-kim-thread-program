@@ -1,3 +1,12 @@
+import employees.Employee;
+import employees.manager.Manager;
+import employees.marketer.Marketer;
+import employees.web.Designer;
+import employees.web.dev.Backend;
+import employees.web.dev.Devops;
+import employees.web.dev.Frontend;
+import employees.web.dev.QA;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,22 +19,31 @@ public class Main {
         List<Employee> employees = new ArrayList<>();
         List<String> roles = Arrays.asList(
                 "Product Manager",
+                "Finance Manager",
+
                 "Frontend Developer",
                 "Backend Developer",
-                "Data Scientist",
-                "Marketing",
+                "DevOps Developer",
                 "UI/UX Designer",
-                "DevOps Engineer",
-                "Finance Manager"
+                "Quality Assurance",
+
+                "Marketing Specialist"
         );
 
-        // 직군별로 처리
+        /*
+        직군별 객체 생성 및 입력 받기
+        1. 직군별 객체 생성
+        2. 직군별 가능한 연봉 리스트 입력 받기
+        * */
         int salary;
+        List<Integer> salaryList;
         for (String role : roles) {
             System.out.println("-----------------------------");
             System.out.println("# " + role);
 
             Employee employee = createEmployee(role);
+            salaryList = getSalaryList(sc,employee);
+
             salary = chooseSalary(sc, employee); // 연봉 선택 로직 호출
             employee.setSalary(salary);
             employees.add(employee);
@@ -85,22 +103,32 @@ public class Main {
             case "Finance Manager":
                 return new Manager(role);
             case "Frontend Developer":
+                return new Frontend(role);
             case "Backend Developer":
-            case "Data Scientist":
-            case "DevOps Engineer":
-                return new Developer(role);
-            case "Marketing":
-                return new Marketer(role);
+                return new Backend(role);
+            case "DevOps Developer":
+                return new Devops(role);
             case "UI/UX Designer":
                 return new Designer(role);
+            case "Quality Assurance":
+                return new QA(role);
+            case "Marketing Specialist":
+                return new Marketer(role);
             default:
                 throw new IllegalArgumentException("Unknown role: " + role);
         }
     }
 
+    // 유저로부터 특정 직군의 연봉 리스트를 입력받는 함수
+    private static List<Integer>  getSalaryList(Scanner sc, Employee employee) {
+        List<Integer> salaryList;
+
+        System.out.println("만원 단위의 연봉 선택지를 띄어쓰기 단위로 입력하세요 (예시: 3000 4000 6000 10000");
+
+    }
     // 연봉 선택 로직
     private static int chooseSalary(Scanner sc, Employee employee) {
-        List<Integer> salaryList = employee.getSalaryList();
+
         System.out.print("연봉 선택지: ");
         System.out.println(Arrays.toString(salaryList.toArray()));
 

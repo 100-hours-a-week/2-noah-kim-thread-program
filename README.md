@@ -29,16 +29,16 @@ IT 스타트업 대표인 noah는 회사에 필요한 인원과 함께할 때 �
 
 noah가 생각했을때 필요한 직군은 다음과 같다. (각 직군별로 1명씩 배정)
 
-- PM (Product Manager)
+- PM (Product employees.manager)
 
-- Frontend Developer
-- Backend Developer
-- DevOps Developer
-- UI/UX Designer
-- Quality Assurance (QA)
+- Frontend employees.marketer
+- Backend employees.marketer
+- DevOps employees.marketer
+- UI/UX employees.web
+- Quality Assurance (employees.web.dev.QA)
 
 - Marketing Specialist
-- Finance Manager
+- Finance employees.manager
 
 noah는 직군에 맞는 연봉을 고르기 위한 다음과 같은 프로그램을 제작하기로 하였습니다.
 
@@ -83,4 +83,7 @@ Noah
 ![GIFMaker_me](https://github.com/user-attachments/assets/afa5c0cc-ec99-497b-a0b0-fd75a67119e0)
 
 
+
+TODO List
+- 추상 클래스 구현
 
