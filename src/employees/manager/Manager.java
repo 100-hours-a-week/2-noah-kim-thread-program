@@ -4,13 +4,15 @@ import employees.Employee;
 
 public class Manager extends Employee {
 
+  private static String role = "Manager";
+
   String domain;
   int leadershipLevel;
   int decisionMakingLevel;
 
-  public Manager(int salary, int experienceYears, String role, String domain, int leadershipLevel,
+  public Manager(int salary, int experienceYears, String domain, int leadershipLevel,
       int decisionMakingLevel) {
-    super(salary, experienceYears, role);
+    super(salary, experienceYears);
     this.domain = domain;
     this.leadershipLevel = leadershipLevel;
     this.decisionMakingLevel = decisionMakingLevel;

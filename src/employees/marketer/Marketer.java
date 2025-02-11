@@ -5,13 +5,15 @@ import java.util.List;
 
 public class Marketer extends Employee {
 
+  private static String role = "Marketer";
+
   private List<String> languageSkills; // 사용가능 언어
   private int creativityLevel;     // 창의력
   private int persuasionLevel;     // 설득 능력
 
-  public Marketer(int salary, int experienceYears, String role, List<String> languageSkills,
+  public Marketer(int salary, int experienceYears, List<String> languageSkills,
       int creativityLevel, int persuasionLevel) {
-    super(salary, experienceYears, role);
+    super(salary, experienceYears);
     this.languageSkills = languageSkills;
     this.creativityLevel = creativityLevel;
     this.persuasionLevel = persuasionLevel;

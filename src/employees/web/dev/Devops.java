@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Devops extends Developer {
 
+  private static String role = "Devops";
+
   private int CICDLevel;
   private int cloudPlatformLevel;
 
-  public Devops(int salary, int experienceYears, String role, String domain, int communationLevel,
+  public Devops(int salary, int experienceYears, String domain, int communationLevel,
       List<String> stacks, int CICDLevel, int cloudPlatformLevel) {
-    super(salary, experienceYears, role, domain, communationLevel, stacks);
+    super(salary, experienceYears, domain, communationLevel, stacks);
     this.CICDLevel = CICDLevel;
     this.cloudPlatformLevel = cloudPlatformLevel;
   }

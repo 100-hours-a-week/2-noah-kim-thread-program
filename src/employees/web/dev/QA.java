@@ -5,12 +5,14 @@ import java.util.List;
 
 public class QA extends Developer {
 
+  private static String role = "Quality-Assurance";
+
   private int testingLevel;
   private int bugTrackingLevel;
 
-  public QA(int salary, int experienceYears, String role, String domain, int communationLevel,
+  public QA(int salary, int experienceYears, String domain, int communationLevel,
       List<String> stacks, int testingLevel, int bugTrackingLevel) {
-    super(salary, experienceYears, role, domain, communationLevel, stacks);
+    super(salary, experienceYears, domain, communationLevel, stacks);
     this.testingLevel = testingLevel;
     this.bugTrackingLevel = bugTrackingLevel;
   }

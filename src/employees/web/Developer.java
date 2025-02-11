@@ -9,10 +9,10 @@ public abstract class Developer extends Employee {
   private int communationLevel;
   private List<String> stacks;
 
-  public Developer(int salary, int experienceYears, String role, String domain,
+  public Developer(int salary, int experienceYears, String domain,
       int communationLevel,
       List<String> stacks) {
-    super(salary, experienceYears, role);
+    super(salary, experienceYears);
     this.domain = domain;
     this.communationLevel = communationLevel;
     this.stacks = stacks;

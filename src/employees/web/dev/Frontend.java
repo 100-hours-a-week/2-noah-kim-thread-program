@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Frontend extends Developer {
 
+  private static String role = "Frontend";
+
   private int cssLevel;
   private int testinglevel;
 
-  public Frontend(int salary, int experienceYears, String role, String domain, int communationLevel,
+  public Frontend(int salary, int experienceYears, String domain, int communationLevel,
       List<String> stacks, int cssLevel, int testinglevel) {
-    super(salary, experienceYears, role, domain, communationLevel, stacks);
+    super(salary, experienceYears, domain, communationLevel, stacks);
     this.cssLevel = cssLevel;
     this.testinglevel = testinglevel;
   }

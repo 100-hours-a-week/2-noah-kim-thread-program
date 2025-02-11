@@ -5,13 +5,15 @@ import java.util.List;
 
 public class Designer extends Employee {
 
+  private static String role = "Designer";
+
   private int animationLevel;
   private int UIUXLevel;
   private List<String> designTools;
 
-  public Designer(int salary, int experienceYears, String role, int animationLevel, int UIUXLevel,
+  public Designer(int salary, int experienceYears, int animationLevel, int UIUXLevel,
       List<String> designTools) {
-    super(salary, experienceYears, role);
+    super(salary, experienceYears);
     this.animationLevel = animationLevel;
     this.UIUXLevel = UIUXLevel;
     this.designTools = designTools;

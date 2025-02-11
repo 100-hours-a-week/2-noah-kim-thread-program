@@ -10,7 +10,6 @@ import employees.web.dev.Frontend;
 import employees.web.dev.QA;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import lib.SafeInput;
 
 public class EmployeeFactory {
@@ -25,112 +24,114 @@ public class EmployeeFactory {
 
     switch (role) {
       case "Manager":
-        return createManager(salary, experienceYears, role);
+        return createManager(salary, experienceYears);
       case "Frontend Developer":
-        return createFrontend(salary, experienceYears, role);
+        return createFrontend(salary, experienceYears);
       case "Backend Developer":
-        return createBackend(salary, experienceYears, role);
+        return createBackend(salary, experienceYears);
       case "DevOps Developer":
-        return createDevops(salary, experienceYears, role);
+        return createDevops(salary, experienceYears);
       case "UI/UX Designer":
-        return createDesigner(salary, experienceYears, role);
+        return createDesigner(salary, experienceYears);
       case "Quality Assurance":
-        return createQA(salary, experienceYears, role);
+        return createQA(salary, experienceYears);
       case "Marketing Specialist":
-        return createMarketer(salary, experienceYears, role);
+        return createMarketer(salary, experienceYears);
       default:
         throw new IllegalArgumentException("Unknown role: " + role);
     }
   }
 
-  private static Manager createManager(int salary, int experienceYears,
-      String role) {
+  private static Manager createManager(int salary, int experienceYears) {
 
     String domain = SafeInput.getValidString("📜 전문 분야: ");
-    int leadershipLevel = SafeInput.getValidInteger("🎯 리더십 레벨 (1~10): ")
+    int leadershipLevel = SafeInput.getValidInteger("🎯 리더십 레벨 (1~10): ");
     int decisionMakingLevel = SafeInput.getValidInteger("📊 의사 결정 능력 (1~10): ");
 
-    return new Manager(salary, experienceYears, role, domain, leadershipLevel,
+    return new Manager(salary, experienceYears, domain, leadershipLevel,
         decisionMakingLevel);
   }
 
-  private static Marketer createMarketer(int salary, int experienceYears,
-      String role) {
+  private static Marketer createMarketer(int salary, int experienceYears) {
     // #1. 공통 필드
-    List<String> languageSkills = Arrays.asList(SafeInput.getValidString("📜 사용가능 언어 (띄어쓰기 구분): ").split(""));
+    List<String> languageSkills = Arrays.asList(
+        SafeInput.getValidString("📜 사용가능 언어 (띄어쓰기 구분): ").split(""));
 
     int creativityLevel = SafeInput.getValidInteger("💡️ 창의력 (1~10): ");
     int persuasionLevel = SafeInput.getValidInteger("🗣️ 설득 "
         + "능력 (1~10): ");
 
-    return new Marketer(salary, experienceYears, role, languageSkills, creativityLevel, persuasionLevel);
+    return new Marketer(salary, experienceYears, languageSkills, creativityLevel, persuasionLevel);
   }
 
-  private static Designer createDesigner(int salary, int experienceYears, String role) {
+  private static Designer createDesigner(int salary, int experienceYears) {
     int animationLevel = SafeInput.getValidInteger("🐺 애니메이션 구현 능력 (1 ~ 10): ");
     int UIUXLevel = SafeInput.getValidInteger("🧑‍🧒️ UI/UX 능력 (1~10): ");
-    List<String> designTools = Arrays.asList(SafeInput.getValidString("🗣️ 사용가능한 디자인 툴 (띄어쓰기로 구분):").split(" "));
+    List<String> designTools = Arrays.asList(
+        SafeInput.getValidString("🗣️ 사용가능한 디자인 툴 (띄어쓰기로 구분):").split(" "));
 
-    return new Designer(salary, experienceYears, role, animationLevel, UIUXLevel, designTools);
+    return new Designer(salary, experienceYears, animationLevel, UIUXLevel, designTools);
   }
 
-  private static Frontend createFrontend(int salary, int experienceYears,
-      String role) {
+  private static Frontend createFrontend(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = SafeInput.getValidString("📜 전문 분야: ");
     int communationLevel = SafeInput.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
-    List<String> stacks = Arrays.asList(SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기 구분): ").split(" "));
+    List<String> stacks = Arrays.asList(
+        SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기 구분): ").split(" "));
 
     // #2. 개별 필드
     int cssLevel = SafeInput.getValidInteger("📜 CSS 레벨 (1~10): ");
     int testinglevel = SafeInput.getValidInteger("️🧪 테스팅 레벨 (1~10): ");
 
-    return new Frontend(salary, experienceYears, role, domain, communationLevel, stacks, cssLevel, testinglevel);
+    return new Frontend(salary, experienceYears, domain, communationLevel, stacks, cssLevel,
+        testinglevel);
   }
 
-  private static Backend createBackend(int salary, int experienceYears,
-      String role) {
+  private static Backend createBackend(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = SafeInput.getValidString("📜 전문 분야: ");
     int communationLevel = SafeInput.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
-    List<String> stacks = Arrays.asList(SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
+    List<String> stacks = Arrays.asList(
+        SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
     // #2. 개별 필드
     int databaseLevel = SafeInput.getValidInteger("㏈ 데이터베이스 레벨 (1~10): ");
     int securityLevel = SafeInput.getValidInteger("🔒️ 보안 레벨 (1~10): ");
 
-    return new Backend(salary, experienceYears, role, domain, communationLevel, stacks,
+    return new Backend(salary, experienceYears, domain, communationLevel, stacks,
         databaseLevel,
         securityLevel);
   }
 
-  private static Devops createDevops(int salary, int experienceYears,
-      String role) {
+  private static Devops createDevops(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = SafeInput.getValidString("📜 전문 분야: ");
     int communationLevel = SafeInput.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
-    List<String> stacks = Arrays.asList(SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
+    List<String> stacks = Arrays.asList(
+        SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
     // #2. 개별 필드
     int CICDLevel = SafeInput.getValidInteger("🔃 CICD 레벨 (1~10): ");
     int cloudPlatformLevel = SafeInput.getValidInteger("☁ 클라우드 레벨 (1~10): ");
 
-    return new Devops(salary, experienceYears, role, domain, communationLevel, stacks,
+    return new Devops(salary, experienceYears, domain, communationLevel, stacks,
         CICDLevel,
         cloudPlatformLevel);
   }
 
-  private static QA createQA(int salary, int experienceYears, String role) {
+  private static QA createQA(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = SafeInput.getValidString("📜 전문 분야: ");
     int communationLevel = SafeInput.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
-    List<String> stacks = Arrays.asList(SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
+    List<String> stacks = Arrays.asList(
+        SafeInput.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
     // #2. 개별 필드
     int testingLevel = SafeInput.getValidInteger("🧪 테스팅 레벨 (1~10): ");
     int bugTrackingLevel = SafeInput.getValidInteger("🐞 버그트래킹 레벨 (1~10): ");
 
-    return new QA(salary, experienceYears, role, domain, communationLevel,
+    return new QA(salary, experienceYears, domain, communationLevel,
         stacks, testingLevel, bugTrackingLevel);
   }
 

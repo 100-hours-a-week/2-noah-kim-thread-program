@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Backend extends Developer {
 
+  private static String role = "Backend";
+
   private int databaseLevel; // DB 활용 능력
   private int securityLevel; // 보안 적용 능력
 
-  public Backend(int salary, int experienceYears, String role, String domain, int communationLevel,
+  public Backend(int salary, int experienceYears, String domain, int communationLevel,
       List<String> stacks, int databaseLevel, int securityLevel) {
-    super(salary, experienceYears, role, domain, communationLevel, stacks);
+    super(salary, experienceYears, domain, communationLevel, stacks);
     this.databaseLevel = databaseLevel;
     this.securityLevel = securityLevel;
   }
