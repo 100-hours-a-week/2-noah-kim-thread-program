@@ -1,7 +1,7 @@
 package employees;
 
 // 공통 상위 클래스
-public abstract class Employee {
+public class Employee {
 
   private int salary;
   private int experienceYears;
@@ -29,8 +29,6 @@ public abstract class Employee {
   }
 
 
-  // 추상 메소드
-  public abstract String showProfile();
 }
 
 
