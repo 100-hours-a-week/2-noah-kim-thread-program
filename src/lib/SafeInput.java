@@ -12,7 +12,7 @@ public class SafeInput {
   public static int getValidInteger(String message) {
     int value;
     while (true) {
-      System.out.println(message);
+      System.out.print(message);
       try {
         value = scanner.nextInt();
         scanner.nextLine();
@@ -26,7 +26,7 @@ public class SafeInput {
 
   // 문자열 입력 검증 메소드
   public static String getValidString(String message) {
-    System.out.println(message);
+    System.out.print(message);
     return scanner.nextLine();
   }
 

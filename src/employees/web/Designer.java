@@ -43,9 +43,4 @@ public class Designer extends Employee {
     this.designTools = designTools;
   }
 
-  // TODO: Designer 프로필 보여주는 함수 만들기
-  @Override
-  public String showProfile() {
-    return "";
-  }
 }

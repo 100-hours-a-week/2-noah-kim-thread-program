@@ -33,9 +33,4 @@ public class Backend extends Developer {
     this.securityLevel = securityLevel;
   }
 
-  // TODO: Backend 프로필 보여주는 함수 만들기
-  @Override
-  public String showProfile() {
-    return "";
-  }
 }

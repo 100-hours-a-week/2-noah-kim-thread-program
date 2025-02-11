@@ -33,9 +33,4 @@ public class Frontend extends Developer {
     this.testinglevel = testinglevel;
   }
 
-  // TODO: Frontend 프로필 보여주는 함수 만들기
-  @Override
-  public String showProfile() {
-    return "";
-  }
 }

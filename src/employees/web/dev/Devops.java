@@ -33,9 +33,4 @@ public class Devops extends Developer {
     this.cloudPlatformLevel = cloudPlatformLevel;
   }
 
-  // TODO: Devops 프로필 보여주는 함수 만들기
-  @Override
-  public String showProfile() {
-    return "";
-  }
 }
