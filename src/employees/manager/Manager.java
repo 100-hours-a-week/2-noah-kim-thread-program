@@ -4,7 +4,7 @@ import employees.Employee;
 
 public class Manager extends Employee {
 
-  private final String role = "Manager";
+  private static String role = "Manager";
 
   String domain;
   int leadershipLevel;
@@ -42,8 +42,4 @@ public class Manager extends Employee {
     this.decisionMakingLevel = decisionMakingLevel;
   }
 
-  @Override
-  public String getRole() {
-    return this.role;
-  }
 }

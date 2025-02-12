@@ -1,12 +1,11 @@
 package employees.marketer;
 
 import employees.Employee;
-import employees.Role;
 import java.util.List;
 
 public class Marketer extends Employee {
 
-  private final Role role = Role.MARKETING_SPECIALIST;
+  private static String role = "Marketer";
 
   private List<String> languageSkills; // 사용가능 언어
   private int creativityLevel;     // 창의력
@@ -44,8 +43,4 @@ public class Marketer extends Employee {
     this.persuasionLevel = persuasionLevel;
   }
 
-  @Override
-  public Role getRole() {
-    return this.role;
-  }
 }

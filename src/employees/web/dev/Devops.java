@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Devops extends Developer {
 
-  private final String role = "Devops";
+  private static String role = "Devops";
 
   private int CICDLevel;
   private int cloudPlatformLevel;
@@ -33,8 +33,4 @@ public class Devops extends Developer {
     this.cloudPlatformLevel = cloudPlatformLevel;
   }
 
-  @Override
-  public String getRole() {
-    return this.role;
-  }
 }

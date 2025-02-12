@@ -6,15 +6,15 @@ import java.util.List;
 public abstract class Developer extends Employee {
 
   private String domain;
-  private int communicationLevel;
+  private int communationLevel;
   private List<String> stacks;
 
   public Developer(int salary, int experienceYears, String domain,
-      int communicationLevel,
+      int communationLevel,
       List<String> stacks) {
     super(salary, experienceYears);
-    this.domain  = domain;
-    this.communicationLevel = communicationLevel;
+    this.domain = domain;
+    this.communationLevel = communationLevel;
     this.stacks = stacks;
   }
 
@@ -26,12 +26,12 @@ public abstract class Developer extends Employee {
     this.domain = domain;
   }
 
-  public int getCommunicationLevel() {
-    return communicationLevel;
+  public int getCommunationLevel() {
+    return communationLevel;
   }
 
-  public void setCommunicationLevel(int communicationLevel) {
-    this.communicationLevel = communicationLevel;
+  public void setCommunationLevel(int communationLevel) {
+    this.communationLevel = communationLevel;
   }
 
   public List<String> getStacks() {
