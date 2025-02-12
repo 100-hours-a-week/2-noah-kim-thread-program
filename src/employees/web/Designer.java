@@ -1,11 +1,12 @@
 package employees.web;
 
 import employees.Employee;
+import employees.Role;
 import java.util.List;
 
 public class Designer extends Employee {
 
-  private static String role = "Designer";
+  private final Role role = Role.UIUX_DESIGNER;
 
   private int animationLevel;
   private int UIUXLevel;
@@ -43,4 +44,8 @@ public class Designer extends Employee {
     this.designTools = designTools;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }

@@ -1,6 +1,7 @@
 package factory;
 
 import employees.Employee;
+import employees.Role;
 import employees.manager.Manager;
 import employees.marketer.Marketer;
 import employees.web.Designer;
@@ -15,7 +16,7 @@ import lib.SafeInput;
 public class EmployeeFactory {
 
   // 역할에 따라 객체를 생성하는 메서드
-  public static Employee createEmployee(String role) {
+  public static Employee createEmployee(Role role) {
     System.out.println("📌 " + role + " 정보를 입력하세요.");
 
     // ✅ 공통 필드 입력 받기
@@ -23,19 +24,19 @@ public class EmployeeFactory {
     int experienceYears = SafeInput.getValidInteger("⌛ 경력 (년): ");
 
     switch (role) {
-      case "Manager":
+      case Role.MANAGER:
         return createManager(salary, experienceYears);
-      case "Frontend Developer":
+      case Role.FRONTEND_DEVELOPER:
         return createFrontend(salary, experienceYears);
-      case "Backend Developer":
+      case Role.BACKEND_DEVELOPER:
         return createBackend(salary, experienceYears);
-      case "DevOps Developer":
+      case Role.DEVOPS_DEVELOPER:
         return createDevops(salary, experienceYears);
-      case "UI/UX Designer":
+      case Role.UIUX_DESIGNER:
         return createDesigner(salary, experienceYears);
-      case "Quality Assurance":
+      case Role.QUALITY_ASSURANCE:
         return createQA(salary, experienceYears);
-      case "Marketing Specialist":
+      case Role.MARKETING_SPECIALIST:
         return createMarketer(salary, experienceYears);
       default:
         throw new IllegalArgumentException("Unknown role: " + role);

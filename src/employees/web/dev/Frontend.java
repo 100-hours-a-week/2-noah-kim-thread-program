@@ -1,11 +1,12 @@
 package employees.web.dev;
 
+import employees.Role;
 import employees.web.Developer;
 import java.util.List;
 
 public class Frontend extends Developer {
 
-  private static String role = "Frontend";
+  private final Role role = Role.FRONTEND_DEVELOPER;
 
   private int cssLevel;
   private int testinglevel;
@@ -33,4 +34,8 @@ public class Frontend extends Developer {
     this.testinglevel = testinglevel;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }

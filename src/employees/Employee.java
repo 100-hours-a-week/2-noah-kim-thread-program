@@ -1,11 +1,12 @@
 package employees;
 
 // 공통 상위 클래스
-public class Employee {
+public abstract class Employee {
 
   private int salary;
   private int experienceYears;
 
+  private Role role;
   // 생성자
   public Employee(int salary, int experienceYears) {
     this.setSalary(salary);
@@ -28,7 +29,7 @@ public class Employee {
     this.experienceYears = experienceYears;
   }
 
-
+  public abstract  Role getRole();
 }
 
 

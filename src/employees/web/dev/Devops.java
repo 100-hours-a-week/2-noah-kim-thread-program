@@ -1,11 +1,12 @@
 package employees.web.dev;
 
+import employees.Role;
 import employees.web.Developer;
 import java.util.List;
 
 public class Devops extends Developer {
 
-  private static String role = "Devops";
+  private final Role role = Role.DEVOPS_DEVELOPER;
 
   private int CICDLevel;
   private int cloudPlatformLevel;
@@ -33,4 +34,8 @@ public class Devops extends Developer {
     this.cloudPlatformLevel = cloudPlatformLevel;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }

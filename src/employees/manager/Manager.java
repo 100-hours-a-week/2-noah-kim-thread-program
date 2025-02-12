@@ -1,10 +1,11 @@
 package employees.manager;
 
 import employees.Employee;
+import employees.Role;
 
 public class Manager extends Employee {
 
-  private static String role = "Manager";
+  private final Role role = Role.MANAGER;
 
   String domain;
   int leadershipLevel;
@@ -42,4 +43,8 @@ public class Manager extends Employee {
     this.decisionMakingLevel = decisionMakingLevel;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }

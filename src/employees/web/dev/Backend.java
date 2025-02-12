@@ -1,11 +1,12 @@
 package employees.web.dev;
 
+import employees.Role;
 import employees.web.Developer;
 import java.util.List;
 
 public class Backend extends Developer {
 
-  private static String role = "Backend";
+  private final Role role = Role.BACKEND_DEVELOPER;
 
   private int databaseLevel; // DB 활용 능력
   private int securityLevel; // 보안 적용 능력
@@ -33,4 +34,8 @@ public class Backend extends Developer {
     this.securityLevel = securityLevel;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }
