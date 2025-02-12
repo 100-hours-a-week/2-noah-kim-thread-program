@@ -1,11 +1,14 @@
 package employees;
 
+import lib.SafeInput;
+
 // 공통 상위 클래스
-public class Employee {
+public abstract class Employee {
 
   private int salary;
   private int experienceYears;
 
+  static Role role;
   // 생성자
   public Employee(int salary, int experienceYears) {
     this.setSalary(salary);
@@ -28,7 +31,22 @@ public class Employee {
     this.experienceYears = experienceYears;
   }
 
+  // 연봉 선택 로직
+  public int reselectSalary() {
+    int salary;
+    while (true) {
+      salary = SafeInput.getValidInteger("연봉을 입력하세요: ");
+      if (salary == this.getSalary()) {
+        System.out.println("같은 연봉입니다. 다시 입력하세요.");
+        continue;
+      }
+      break;
+    }
+    return salary;
+  }
 
+  // 추상 메소드
+  public abstract Role getRole();
 }
 
 

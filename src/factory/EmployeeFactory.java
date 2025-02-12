@@ -55,7 +55,7 @@ public class EmployeeFactory {
   private static Marketer createMarketer(int salary, int experienceYears) {
     // #1. 공통 필드
     List<String> languageSkills = Arrays.asList(
-        SafeInput.getValidString("📜 사용가능 언어 (띄어쓰기 구분): ").split(""));
+        SafeInput.getValidString("📜 사용가능 언어 (띄어쓰기 구분): ").split(" "));
 
     int creativityLevel = SafeInput.getValidInteger("💡️ 창의력 (1~10): ");
     int persuasionLevel = SafeInput.getValidInteger("🗣️ 설득 "

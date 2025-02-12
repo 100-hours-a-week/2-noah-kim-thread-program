@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Frontend extends Developer {
 
-  private static String role = "Frontend";
+  private final String role = "Frontend";
 
   private int cssLevel;
   private int testinglevel;
@@ -33,4 +33,8 @@ public class Frontend extends Developer {
     this.testinglevel = testinglevel;
   }
 
+  @Override
+  public String getRole() {
+    return this.role;
+  }
 }

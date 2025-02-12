@@ -5,10 +5,10 @@ import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
 
 public class CompanyData {
+  public static final int Fund = 50000; // 회사 예산 (초기 설정)
+
   private final List<Employee> employees = new ArrayList<>();
   private final Queue<Employee> unpaidQueue = new PriorityBlockingQueue<>(10, Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
-
-  private static final int companyFund = 50000; // 회사 예산 (초기 설정)
 
   public List<Employee> getEmployees() {
     return this.employees;
@@ -38,10 +38,22 @@ public class CompanyData {
     return !unpaidQueue.isEmpty();
   }
 
-  public synchronized List<Employee> getEmployeesSortedBySalary() {
-    employees.sort(Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
-    return employees;
+  public synchronized List<Employee> getUnpaidEmployees() {
+    // 1️⃣ 먼저 unpaidQueue의 직원들을 리스트로 변환
+    List<Employee> unpaidList = new ArrayList<>(unpaidQueue);
+
+    // 2️⃣ 일반 직원(employees)도 정렬 (연봉 높은 순)
+    List<Employee> sortedEmployees = new ArrayList<>(employees);
+    sortedEmployees.sort(Comparator.comparing(Employee::getSalary).reversed());
+
+    // 3️⃣ unpaidList + sortedEmployees를 합쳐서 반환
+    List<Employee> finalList = new ArrayList<>();
+    finalList.addAll(unpaidList);
+    finalList.addAll(sortedEmployees);
+
+    return finalList;
   }
+
 
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Backend extends Developer {
 
-  private static String role = "Backend";
+  private final String role = "Backend";
 
   private int databaseLevel; // DB 활용 능력
   private int securityLevel; // 보안 적용 능력
@@ -33,4 +33,8 @@ public class Backend extends Developer {
     this.securityLevel = securityLevel;
   }
 
+  @Override
+  public String getRole() {
+    return this.role;
+  }
 }

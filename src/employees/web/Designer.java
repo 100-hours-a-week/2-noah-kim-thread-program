@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Designer extends Employee {
 
-  private static String role = "Designer";
+  private final String role = "Designer";
 
   private int animationLevel;
   private int UIUXLevel;
@@ -43,4 +43,8 @@ public class Designer extends Employee {
     this.designTools = designTools;
   }
 
+  @Override
+  public String getRole() {
+    return this.role;
+  }
 }
