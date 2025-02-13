@@ -2,8 +2,6 @@ package lib.Threads;
 
 import data.CompanyData;
 import employees.Employee;
-import java.util.List;
-import javax.swing.JComponent;
 import lib.TimeTracker;
 
 public class SalaryPaymentThread extends Thread {

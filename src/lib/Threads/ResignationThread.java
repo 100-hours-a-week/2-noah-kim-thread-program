@@ -80,6 +80,4 @@ public class ResignationThread extends Thread {
     System.out.println("❌ " + employee.getRole() + "이(가) 퇴사했습니다! (미지급: " + employee.getSalary() + "원, 경력: " + employee.getExperienceYears() + "년)\n");
     return employee;
   }
-
-
 }

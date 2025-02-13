@@ -10,11 +10,17 @@ public class CompanyData {
 
   public static final int companyFund = 12000; // 회사 예산 (초기 설정)
 
+  //1️⃣ Employee
   public List<Employee> getEmployees() {
     return this.employees;
   }
-  public void addEmployee(Employee employee) {
+
+  public synchronized void addEmployee(Employee employee) {
     this.employees.add(employee);
+  }
+
+  public synchronized  void removeEmployee(Employee employee) {
+    this.employees.remove(employee);
   }
 
   public int getSumSalary() {
@@ -26,35 +32,26 @@ public class CompanyData {
     return totalSalary;
   }
 
-  // Employee 추가하기
-  public synchronized void addUnpaidEmployee(Employee employee) {
-    unpaidEmployees.offer(employee);
-  }
-
-  // 큐에서 가장 우선순위가 높은 객체를 반환한다 (제거한다)
-  public synchronized Employee pollUnpaidQueue() {
-    return unpaidEmployees.poll();
-  }
-
-  public synchronized boolean hasUnpaidEmployees() {
-    return !unpaidEmployees.isEmpty();
+  // 2️⃣ unpaidEmployees
+  public Queue<Employee> getUnpaidEmployees() {
+    return unpaidEmployees;
   }
 
   public synchronized int getUnpaidQueueSize() {
     return this.unpaidEmployees.size();
   }
 
-  public Queue<Employee> getUnpaidEmployees() {
-    return unpaidEmployees;
+  public synchronized void addUnpaidEmployee(Employee employee) {
+    unpaidEmployees.offer(employee);
   }
 
-  public synchronized  void removeEmployee(Employee employee) {
-    this.employees.remove(employee);
-  }
+  public synchronized Employee pollUnpaidQueue() {
+    return unpaidEmployees.poll();
+  } // 큐에서 가장 우선순위가 높은 객체를 반환(제거)
+
   public synchronized  void removeFromUnpaidQueue(Employee employee) {
     unpaidEmployees.removeAll(Collections.singleton(employee));
   }
-
 
 }
 

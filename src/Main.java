@@ -57,7 +57,7 @@ public class Main {
     for (int i = 0; i < roles.size(); i++) {
       System.out.println((i + 1) + ". " + roles.get(i) + ": " + companyData.getEmployees().get(i).getSalary());
     }
-    // Thread Start
+    // ✅ 임금 지급 스레드 시작
     TimeTracker timeTracker = new TimeTracker();
 
     TimerThread timer  = new TimerThread(timeTracker);
@@ -71,7 +71,6 @@ public class Main {
     System.out.println(companyData.getSumSalary() + "만원");
     System.out.println("행운을 빌어요!");
 
-    // 스레드 종료 및 정리
     // ✅ 종료 처리
     System.out.println("\n🛑 프로그램 종료를 원하면 Enter 키를 누르세요.");
     SafeInput.getValidString("");

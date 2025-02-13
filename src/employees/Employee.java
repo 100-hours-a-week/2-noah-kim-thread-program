@@ -45,6 +45,7 @@ public abstract class Employee {
     }
     this.salary = salary;
   }
+
   public abstract  Role getRole();
 }
 
