@@ -1,11 +1,12 @@
 package employees.web.dev;
 
+import employees.Role;
 import employees.web.Developer;
 import java.util.List;
 
 public class QA extends Developer {
 
-  private static String role = "Quality-Assurance";
+  private static Role role = Role.QUALITY_ASSURANCE;
 
   private int testingLevel;
   private int bugTrackingLevel;
@@ -33,4 +34,8 @@ public class QA extends Developer {
     this.bugTrackingLevel = bugTrackingLevel;
   }
 
+  @Override
+  public Role getRole() {
+    return this.role;
+  }
 }

@@ -8,7 +8,7 @@ public class CompanyData {
   private final List<Employee> employees = new ArrayList<>();
   private final Queue<Employee> unpaidEmployees = new PriorityBlockingQueue<>(10, Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
 
-  private static final int companyFund = 50000; // 회사 예산 (초기 설정)
+  public static final int companyFund = 12000; // 회사 예산 (초기 설정)
 
   public List<Employee> getEmployees() {
     return this.employees;
@@ -27,7 +27,7 @@ public class CompanyData {
   }
 
   // Employee 추가하기
-  public synchronized void addUnpaidEmployees(Employee employee) {
+  public synchronized void addUnpaidEmployee(Employee employee) {
     unpaidEmployees.offer(employee);
   }
 
@@ -40,9 +40,19 @@ public class CompanyData {
     return !unpaidEmployees.isEmpty();
   }
 
-  public synchronized List<Employee> getEmployeesSortedBySalary() {
-    employees.sort(Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
-    return employees;
+  public synchronized int getUnpaidQueueSize() {
+    return this.unpaidEmployees.size();
+  }
+
+  public Queue<Employee> getUnpaidEmployees() {
+    return unpaidEmployees;
+  }
+
+  public synchronized  void removeEmployee(Employee employee) {
+    this.employees.remove(employee);
+  }
+  public synchronized  void removeFromUnpaidQueue(Employee employee) {
+    unpaidEmployees.removeAll(Collections.singleton(employee));
   }
 
 

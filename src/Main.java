@@ -5,6 +5,8 @@ import factory.EmployeeFactory;
 import java.util.Arrays;
 import java.util.List;
 import lib.SafeInput;
+import lib.Threads.ResignationThread;
+import lib.Threads.SalaryPaymentThread;
 import lib.TimeTracker;
 import lib.Threads.TimerThread;
 
@@ -14,11 +16,6 @@ public class Main {
 
     CompanyData companyData = new CompanyData();
 
-    // Time Thread
-    TimeTracker timeTracker = new TimeTracker();
-    TimerThread timer  = new TimerThread(timeTracker);
-    timer.start();
-
     List<Role> roles = Arrays.asList(Role.values());
     for (Role role : roles) {
       System.out.println("-----------------------------");
@@ -27,7 +24,6 @@ public class Main {
       // 1. 직군별 각 사람에 대한 첫 스펙 및 능력을 입력 받기
       Employee employee = EmployeeFactory.createEmployee(role);
       companyData.addEmployee(employee);
-      System.out.println(timeTracker.getElapsedTimeString() + "사용했습니다");
     }
 
     // 2. 총 연봉 계산
@@ -61,14 +57,29 @@ public class Main {
     for (int i = 0; i < roles.size(); i++) {
       System.out.println((i + 1) + ". " + roles.get(i) + ": " + companyData.getEmployees().get(i).getSalary());
     }
+    // Thread Start
+    TimeTracker timeTracker = new TimeTracker();
+
+    TimerThread timer  = new TimerThread(timeTracker);
+    SalaryPaymentThread salaryPaymentThread = new SalaryPaymentThread(companyData, timeTracker);
+    ResignationThread resignationThread = new ResignationThread(companyData, timeTracker);
+
+    timer.start();
+    salaryPaymentThread.start();
+    resignationThread.start();
 
     System.out.println(companyData.getSumSalary() + "만원");
     System.out.println("행운을 빌어요!");
 
     // 스레드 종료 및 정리
-    timeTracker.stopTracking();
+    // ✅ 종료 처리
+    System.out.println("\n🛑 프로그램 종료를 원하면 Enter 키를 누르세요.");
+    SafeInput.getValidString("");
 
+    timeTracker.stopTracking();
     SafeInput.closeScanner();
+
+    System.out.println("🔚 프로그램 종료");
   }
 
 
