@@ -1,4 +1,6 @@
-package lib.Timer;
+package lib.Threads;
+
+import lib.TimeTracker;
 
 public class TimerThread extends Thread {
   private final TimeTracker timeTracker;

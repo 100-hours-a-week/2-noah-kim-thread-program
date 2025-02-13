@@ -1,4 +1,4 @@
-package lib.Timer;
+package lib;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

@@ -1,13 +1,12 @@
 import data.CompanyData;
 import employees.Employee;
+import employees.Role;
 import factory.EmployeeFactory;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import lib.SafeInput;
-import lib.Timer.BillingSystem;
-import lib.Timer.TimeTracker;
-import lib.Timer.TimerThread;
+import lib.TimeTracker;
+import lib.Threads.TimerThread;
 
 public class Main {
 
@@ -15,21 +14,13 @@ public class Main {
 
     CompanyData companyData = new CompanyData();
 
-    List<String> roles = Arrays.asList(
-        "Manager",
-        "Frontend Developer",
-        "Backend Developer",
-        "DevOps Developer",
-        "Quality Assurance",
-        "UI/UX Designer",
-        "Marketing Specialist"
-    );
-
+    // Time Thread
     TimeTracker timeTracker = new TimeTracker();
     TimerThread timer  = new TimerThread(timeTracker);
-
     timer.start();
-    for (String role : roles) {
+
+    List<Role> roles = Arrays.asList(Role.values());
+    for (Role role : roles) {
       System.out.println("-----------------------------");
       System.out.println("# " + role);
 
@@ -52,7 +43,6 @@ public class Main {
 
       // 종료 조건
       if (select == -1) {
-        timeTracker.stopTracking();
         break;
       }
       // 범위 벗어남
@@ -60,11 +50,10 @@ public class Main {
         System.out.println("유효하지 않은 번호입니다. 다시 선택하세요.");
         continue;
       }
-      Employee selectedEmployee = companyData.getEmployees().get(select - 1);
       System.out.println("선택한 직군: " + roles.get(select - 1));
 
-      int newSalary = reselectSalary(selectedEmployee); // 연봉 재선택 로직
-      selectedEmployee.setSalary(newSalary);
+      Employee selectedEmployee = companyData.getEmployees().get(select - 1);
+      selectedEmployee.reselectSalary();
 
       System.out.println("연봉이 업데이트되었습니다.");
     }
@@ -76,25 +65,11 @@ public class Main {
     System.out.println(companyData.getSumSalary() + "만원");
     System.out.println("행운을 빌어요!");
 
-    System.out.println("-------------프로그램 사용 비용----------------");
-    System.out.println(BillingSystem.calculateFee(timeTracker.getElapsedTime()) + "원 사용했습니다. 계좌로 송금바랍니다");
-
-
+    // 스레드 종료 및 정리
+    timeTracker.stopTracking();
 
     SafeInput.closeScanner();
   }
 
-  // 연봉 선택 로직
-  private static int reselectSalary(Employee employee) {
-    int salary;
-    while (true) {
-      salary = SafeInput.getValidInteger("연봉을 입력하세요: ");
-      if (salary == employee.getSalary()) {
-        System.out.println("같은 연봉입니다. 다시 입력하세요.");
-        continue;
-      }
-      break;
-    }
-    return salary;
-  }
+
 }

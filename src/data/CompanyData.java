@@ -6,7 +6,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 public class CompanyData {
   private final List<Employee> employees = new ArrayList<>();
-  private final Queue<Employee> unpaidQueue = new PriorityBlockingQueue<>(10, Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
+  private final Queue<Employee> unpaidEmployees = new PriorityBlockingQueue<>(10, Comparator.comparing(Employee::getSalary).reversed()); // 연봉 높은 순 정렬
 
   private static final int companyFund = 50000; // 회사 예산 (초기 설정)
 
@@ -26,16 +26,18 @@ public class CompanyData {
     return totalSalary;
   }
 
-  public synchronized void addToUnpaidQueue(Employee employee) {
-    unpaidQueue.offer(employee);
+  // Employee 추가하기
+  public synchronized void addUnpaidEmployees(Employee employee) {
+    unpaidEmployees.offer(employee);
   }
 
+  // 큐에서 가장 우선순위가 높은 객체를 반환한다 (제거한다)
   public synchronized Employee pollUnpaidQueue() {
-    return unpaidQueue.poll();
+    return unpaidEmployees.poll();
   }
 
   public synchronized boolean hasUnpaidEmployees() {
-    return !unpaidQueue.isEmpty();
+    return !unpaidEmployees.isEmpty();
   }
 
   public synchronized List<Employee> getEmployeesSortedBySalary() {
