@@ -1,26 +1,26 @@
-package lib.Threads;
+package Threads;
 
 import data.CompanyData;
 import employees.Employee;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import lib.TimeTracker;
+import data.ElapsedTime;
 
 public class ResignationThread extends Thread {
 
   private final CompanyData companyData;
-  private final TimeTracker timeTracker;
+  private final ElapsedTime elapsedTime;
 
-  public ResignationThread(CompanyData companyData, TimeTracker timeTracker) {
+  public ResignationThread(CompanyData companyData, ElapsedTime elapsedTime) {
     this.companyData = companyData;
-    this.timeTracker = timeTracker;
+    this.elapsedTime = elapsedTime;
   }
 
   @Override
   public void run() {
     try {
-      while (timeTracker.isRunning()) {
+      while (elapsedTime.isRunning()) {
         Thread.sleep(1000); // 1초마다 체크
 
         // ✅ 미지급 직원 수가 15명을 초과하면 퇴사 처리

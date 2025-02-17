@@ -1,8 +1,8 @@
-package lib;
+package data;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class TimeTracker {
+public class ElapsedTime {
 
   private final AtomicInteger elapsedTime = new AtomicInteger(0);
   private boolean running = true;

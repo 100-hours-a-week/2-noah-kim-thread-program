@@ -1,19 +1,19 @@
-package lib.Threads;
+package Threads;
 
-import lib.TimeTracker;
+import data.ElapsedTime;
 
 public class TimerThread extends Thread {
-  private final TimeTracker timeTracker;
+  private final ElapsedTime elapsedTime;
 
-  public TimerThread(TimeTracker timeTracker) {
-    this.timeTracker = timeTracker;
+  public TimerThread(ElapsedTime elapsedTime) {
+    this.elapsedTime = elapsedTime;
   }
 
   @Override
   public void run() {
     try {
-      while (timeTracker.isRunning()) {
-        timeTracker.incrementTime();
+      while (elapsedTime.isRunning()) {
+        elapsedTime.incrementTime();
         Thread.sleep(1000); // 1초마다 시간 증가
       }
     } catch (InterruptedException e) {

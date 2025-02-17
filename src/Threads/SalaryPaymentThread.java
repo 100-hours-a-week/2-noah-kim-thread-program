@@ -1,24 +1,24 @@
-package lib.Threads;
+package Threads;
 
 import data.CompanyData;
 import employees.Employee;
-import lib.TimeTracker;
+import data.ElapsedTime;
 
 public class SalaryPaymentThread extends Thread {
   private final CompanyData companyData;
-  private final TimeTracker timeTracker;
+  private final ElapsedTime elapsedTime;
 
-  public SalaryPaymentThread(CompanyData companyData, TimeTracker timeTracker) {
+  public SalaryPaymentThread(CompanyData companyData, ElapsedTime elapsedTime) {
     this.companyData = companyData;
-    this.timeTracker = timeTracker;
+    this.elapsedTime = elapsedTime;
   }
 
   @Override
   public void run() {
     int lastSalaryTime = 0;
     try {
-      while(timeTracker.isRunning()) {
-        int elapsedTime = timeTracker.getElapsedTime();
+      while(elapsedTime.isRunning()) {
+        int elapsedTime = this.elapsedTime.getElapsedTime();
         // 한달(5초)에 한번씩 임금을 지급한다.
         if(elapsedTime - lastSalaryTime >= 5) {
           lastSalaryTime = elapsedTime;
@@ -32,7 +32,7 @@ public class SalaryPaymentThread extends Thread {
   }
 
   private void processSalaryPayments() {
-    System.out.println("💰 [임금 지급 시작] 현재 시간: " + timeTracker.getElapsedTimeString());
+    System.out.println("💰 [임금 지급 시작] 현재 시간: " + elapsedTime.getElapsedTimeString());
     System.out.println("🏢 이번 달 수익: " + CompanyData.companyFund + "원");
 
     int remainingSalary = CompanyData.companyFund;

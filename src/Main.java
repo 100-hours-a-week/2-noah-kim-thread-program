@@ -5,10 +5,10 @@ import factory.EmployeeFactory;
 import java.util.Arrays;
 import java.util.List;
 import lib.TypeSafeScanner;
-import lib.Threads.ResignationThread;
-import lib.Threads.SalaryPaymentThread;
-import lib.TimeTracker;
-import lib.Threads.TimerThread;
+import Threads.ResignationThread;
+import Threads.SalaryPaymentThread;
+import data.ElapsedTime;
+import Threads.TimerThread;
 
 public class Main {
 
@@ -58,11 +58,11 @@ public class Main {
       System.out.println((i + 1) + ". " + roles.get(i) + ": " + companyData.getEmployees().get(i).getSalary());
     }
     // ✅ 임금 지급 스레드 시작
-    TimeTracker timeTracker = new TimeTracker();
+    ElapsedTime elapsedTime = new ElapsedTime();
 
-    TimerThread timer  = new TimerThread(timeTracker);
-    SalaryPaymentThread salaryPaymentThread = new SalaryPaymentThread(companyData, timeTracker);
-    ResignationThread resignationThread = new ResignationThread(companyData, timeTracker);
+    TimerThread timer  = new TimerThread(elapsedTime);
+    SalaryPaymentThread salaryPaymentThread = new SalaryPaymentThread(companyData, elapsedTime);
+    ResignationThread resignationThread = new ResignationThread(companyData, elapsedTime);
 
     timer.start();
     salaryPaymentThread.start();
@@ -75,7 +75,7 @@ public class Main {
     System.out.println("\n🛑 프로그램 종료를 원하면 Enter 키를 누르세요.");
     TypeSafeScanner.getValidString("");
 
-    timeTracker.stopTracking();
+    elapsedTime.stopTracking();
     TypeSafeScanner.closeScanner();
 
     System.out.println("🔚 프로그램 종료");
