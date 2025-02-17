@@ -4,7 +4,7 @@ import employees.Role;
 import factory.EmployeeFactory;
 import java.util.Arrays;
 import java.util.List;
-import lib.SafeInput;
+import lib.TypeSafeScanner;
 import lib.Threads.ResignationThread;
 import lib.Threads.SalaryPaymentThread;
 import lib.TimeTracker;
@@ -35,7 +35,7 @@ public class Main {
         System.out.println((i + 1) + ". " + roles.get(i) + ": " + companyData.getEmployees().get(i).getSalary());
       }
 
-      int select = SafeInput.getValidInteger("재선택하고 싶은 직군의 번호를 입력해주세요. 없으면 -1을 입력하세요.");
+      int select = TypeSafeScanner.getValidInteger("재선택하고 싶은 직군의 번호를 입력해주세요. 없으면 -1을 입력하세요.");
 
       // 종료 조건
       if (select == -1) {
@@ -73,10 +73,10 @@ public class Main {
 
     // ✅ 종료 처리
     System.out.println("\n🛑 프로그램 종료를 원하면 Enter 키를 누르세요.");
-    SafeInput.getValidString("");
+    TypeSafeScanner.getValidString("");
 
     timeTracker.stopTracking();
-    SafeInput.closeScanner();
+    TypeSafeScanner.closeScanner();
 
     System.out.println("🔚 프로그램 종료");
   }

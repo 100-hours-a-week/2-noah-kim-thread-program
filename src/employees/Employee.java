@@ -1,6 +1,6 @@
 package employees;
 
-import lib.SafeInput;
+import lib.TypeSafeScanner;
 
 // 공통 상위 클래스
 public abstract class Employee {
@@ -35,7 +35,7 @@ public abstract class Employee {
   public void reselectSalary() {
     int salary;
     while (true) {
-      salary = SafeInput.getValidInteger("연봉을 입력하세요: ");
+      salary = TypeSafeScanner.getValidInteger("연봉을 입력하세요: ");
       if (salary == this.salary) {
         System.out.println("같은 연봉입니다. 다시 입력하세요.");
       }

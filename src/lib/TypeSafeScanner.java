@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // 각 함수에 맞는 올바른 자료형을 입력받는지 확인하는 유틸리티 클래스
-public class SafeInput {
+public class TypeSafeScanner {
 
   private static final Scanner scanner = new Scanner(System.in);
 
