@@ -77,22 +77,22 @@ public class EmployeeFactory {
   private static Frontend createFrontend(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = TypeSafeScanner.getValidString("📜 전문 분야: ");
-    int communationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
+    int communicationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
     List<String> stacks = Arrays.asList(
         TypeSafeScanner.getValidString("🖱️ 사용가능 스택 (띄어쓰기 구분): ").split(" "));
 
     // #2. 개별 필드
     int cssLevel = TypeSafeScanner.getValidInteger("📜 CSS 레벨 (1~10): ");
-    int testinglevel = TypeSafeScanner.getValidInteger("️🧪 테스팅 레벨 (1~10): ");
+    int testingLevel = TypeSafeScanner.getValidInteger("️🧪 테스팅 레벨 (1~10): ");
 
-    return new Frontend(salary, experienceYears, domain, communationLevel, stacks, cssLevel,
-        testinglevel);
+    return new Frontend(salary, experienceYears, domain, communicationLevel, stacks, cssLevel,
+        testingLevel);
   }
 
   private static Backend createBackend(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = TypeSafeScanner.getValidString("📜 전문 분야: ");
-    int communationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
+    int communicationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
     List<String> stacks = Arrays.asList(
         TypeSafeScanner.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
@@ -100,7 +100,7 @@ public class EmployeeFactory {
     int databaseLevel = TypeSafeScanner.getValidInteger("㏈ 데이터베이스 레벨 (1~10): ");
     int securityLevel = TypeSafeScanner.getValidInteger("🔒️ 보안 레벨 (1~10): ");
 
-    return new Backend(salary, experienceYears, domain, communationLevel, stacks,
+    return new Backend(salary, experienceYears, domain, communicationLevel, stacks,
         databaseLevel,
         securityLevel);
   }
@@ -108,7 +108,7 @@ public class EmployeeFactory {
   private static Devops createDevops(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = TypeSafeScanner.getValidString("📜 전문 분야: ");
-    int communationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
+    int communicationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
     List<String> stacks = Arrays.asList(
         TypeSafeScanner.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
@@ -116,7 +116,7 @@ public class EmployeeFactory {
     int CICDLevel = TypeSafeScanner.getValidInteger("🔃 CICD 레벨 (1~10): ");
     int cloudPlatformLevel = TypeSafeScanner.getValidInteger("☁ 클라우드 레벨 (1~10): ");
 
-    return new Devops(salary, experienceYears, domain, communationLevel, stacks,
+    return new Devops(salary, experienceYears, domain, communicationLevel, stacks,
         CICDLevel,
         cloudPlatformLevel);
   }
@@ -124,7 +124,7 @@ public class EmployeeFactory {
   private static QA createQA(int salary, int experienceYears) {
     // #1. 공통 필드
     String domain = TypeSafeScanner.getValidString("📜 전문 분야: ");
-    int communationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
+    int communicationLevel = TypeSafeScanner.getValidInteger("🎙️ 커뮤니케이션 레벨 (1~10): ");
     List<String> stacks = Arrays.asList(
         TypeSafeScanner.getValidString("🖱️ 사용가능 스택 (띄어쓰기로 구분): ").split(" "));
 
@@ -132,7 +132,7 @@ public class EmployeeFactory {
     int testingLevel = TypeSafeScanner.getValidInteger("🧪 테스팅 레벨 (1~10): ");
     int bugTrackingLevel = TypeSafeScanner.getValidInteger("🐞 버그트래킹 레벨 (1~10): ");
 
-    return new QA(salary, experienceYears, domain, communationLevel,
+    return new QA(salary, experienceYears, domain, communicationLevel,
         stacks, testingLevel, bugTrackingLevel);
   }
 
