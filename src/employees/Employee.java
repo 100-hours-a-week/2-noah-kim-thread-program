@@ -31,21 +31,6 @@ public abstract class Employee {
     this.experienceYears = experienceYears;
   }
 
-  // 연봉 선택 로직
-  public void reselectSalary() {
-    int salary;
-    while (true) {
-      salary = TypeSafeScanner.getValidInteger("연봉을 입력하세요: ");
-      if (salary == this.salary) {
-        System.out.println("같은 연봉입니다. 다시 입력하세요.");
-      }
-      else {
-        break;
-      }
-    }
-    this.salary = salary;
-  }
-
   public abstract  Role getRole();
 }
 

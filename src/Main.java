@@ -49,7 +49,7 @@ public class Main {
       System.out.println("선택한 직군: " + roles.get(select - 1));
 
       Employee selectedEmployee = companyData.getEmployees().get(select - 1);
-      selectedEmployee.reselectSalary();
+      int reselctedSalary = reselectSalary(selectedEmployee);
 
       System.out.println("연봉이 업데이트되었습니다.");
     }
@@ -79,7 +79,24 @@ public class Main {
     TypeSafeScanner.closeScanner();
 
     System.out.println("🔚 프로그램 종료");
+
+
   }
 
+  // 연봉 선택 로직
+  private static int reselectSalary(Employee employee) {
+    int currSalary = employee.getSalary();
+    int salary;
+    while (true) {
+      salary = TypeSafeScanner.getValidInteger("연봉을 입력하세요: ");
+      if (salary == currSalary) {
+        System.out.println("같은 연봉입니다. 다시 입력하세요.");
+      }
+      else {
+        break;
+      }
+    }
+    return salary;
+  }
 
 }
